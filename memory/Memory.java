@@ -13,15 +13,17 @@ public class Memory
         free_total = max_mem;
     } 
 
-    private static void malloc(int size)
+    public boolean malloc(int size)
     {
-        if(max_memory>size)
+        if(free_total>=size)
         {
             allocated_total += size;    
             free_total -= size;
+            return true;
         }
         else
             System.out.println("Not Enough Memory!Free: " + free_total);
+        return false;
     }
 }
     
